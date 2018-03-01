@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = Product::where("expiration_date", ">", Carbon::now())->get();
+        $products = Product::where("expiration_date", ">=", Carbon::now())->get();
         return view('home')->with('products', $products);
     }
 }

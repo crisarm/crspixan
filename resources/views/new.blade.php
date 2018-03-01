@@ -9,6 +9,15 @@
         </div>
     </div>
 </div>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 {!! Form::open(['route'=>'store', 'method'=>'POST']) !!}
 <div class="container">
     <div class="row">
@@ -20,32 +29,32 @@
                     </div>
                     <div class="col-md-6">
                         {!! Form::label('name','El nombre de tu producto') !!}
-                        {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'ej. Monitor LG DE 23"','required']) !!}
+                        {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'ej. Monitor LG DE 23"']) !!}
                     </div>
                     <div class="col-md-6">
                         {!! Form::label('category','Categoría de tu producto') !!}
-                        {!! Form::text('category',null,['class'=>'form-control','placeholder'=>'ej. Electrónicos','required']) !!}
+                        {!! Form::text('category',null,['class'=>'form-control','placeholder'=>'ej. Electrónicos']) !!}
                     </div>
 
                     <div class="col-md-12">
                         {!! Form::label('description','Descripción del producto') !!}
-                        {!! Form::text('description',null,['class'=>'form-control','placeholder'=>'ej. Monitor Full HD LG, 23 pulgadas, Resolución 1920x1080 px','required']) !!}
+                        {!! Form::text('description',null,['class'=>'form-control','placeholder'=>'ej. Monitor Full HD LG, 23 pulgadas, Resolución 1920x1080 px']) !!}
                     </div>
 
                     <div class="col-md-6">
                         {!! Form::label('amount','¿Cuántos productos quieres vender?') !!}
-                        {!! Form::text('amount',null,['class'=>'form-control','placeholder'=>'ej. 1','required']) !!}
+                        {!! Form::text('amount',null,['class'=>'form-control','placeholder'=>'ej. 1']) !!}
                     </div>
                     <div class="col-md-6">
                         {!! Form::label('expiration_date','¿Hasta cuando estará disponible?') !!}
-                        {!! Form::date('expiration_date',\Carbon\Carbon::now(),['class'=>'form-control','required']) !!}
+                        {!! Form::date('expiration_date',\Carbon\Carbon::now(),['class'=>'form-control']) !!}
                     </div>
 
                     <div class="col-md-12">
                         {!! Form::label('cost','¿Qué precio tiene tu producto?') !!}
                     </div>
                     <div class="col-md-6">
-                        {!! Form::number('cost',null,['class'=>'form-control','placeholder'=>'ej. 3000 (Usa sólo números)','required']) !!}
+                        {!! Form::number('cost',null,['class'=>'form-control','placeholder'=>'ej. 3000 (Usa sólo números)']) !!}
                     </div>
                     <div class="col-md-6">
                         {!! Form::button(' PUBLICAR', array('class'=>'btn btn-sm', 'type'=>'submit')) !!}
